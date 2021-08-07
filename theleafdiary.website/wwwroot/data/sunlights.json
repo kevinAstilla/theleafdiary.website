@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "direct light",
+    "description": "direct light description"
+  },
+  {
+    "id": 2,
+    "name": "bright indirect light",
+    "description": "bright indirect light description"
+  },
+  {
+    "id": 3,
+    "name": "medium light",
+    "description": "medium light description"
+  },
+  {
+    "id": 4,
+    "name": "low light",
+    "description": "low light description"
+  },
+  {
+    "id": 4,
+    "name": "little to no light",
+    "description": "little to no light description"
+  }
+]
