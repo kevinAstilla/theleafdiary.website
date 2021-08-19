@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using theleafdiary.WebSite.Services;
 
 namespace theleafdiary.website
 {
@@ -24,6 +25,7 @@ namespace theleafdiary.website
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddTransient<JsonFileArticleService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
