@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,7 +8,9 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
+using theleafdiary.website.models;
 using theleafdiary.WebSite.Services;
 
 namespace theleafdiary.website
@@ -25,6 +28,7 @@ namespace theleafdiary.website
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddControllers();
             services.AddTransient<JsonFileArticleService>();
         }
 
@@ -52,6 +56,13 @@ namespace theleafdiary.website
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
+                //endpoints.MapGet("/articles", (context) =>
+                //{
+                //    var articles = app.ApplicationServices.GetService<JsonFileArticleService>().GetArticles();
+                //    var json = JsonSerializer.Serialize<IEnumerable<Article>>(articles);
+                //    return context.Response.WriteAsync(json);
+                //});
             });
         }
     }

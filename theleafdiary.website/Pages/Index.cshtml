@@ -9,7 +9,16 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
-@foreach (var article in Model.Articles)
-{
-    <h2>@article.title</h2>
-}
+<div class="card-columns">
+
+    @foreach (var article in Model.Articles)
+    {
+        <div class="card">
+            <div class="card-img" style="background-image: url('@article.image');">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@article.title</h5>
+            </div>
+        </div>
+    }
+</div>

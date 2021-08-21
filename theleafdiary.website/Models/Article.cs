@@ -9,14 +9,14 @@ namespace theleafdiary.website.models
 {
     public class Article
     {
-        public string id { get; set; }
-        public string author { get; set; }
-        public string url { get; set; }
+        public string Id { get; set; }
+        public string Author { get; set; }
+        public string Url { get; set; }
         [JsonPropertyName("img")]
-        public string image { get; set; }
-        public string title { get; set; }
-        public string description { get; set; }
-        public int[] ratings { get; set; }
+        public string Image { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public int[] Ratings { get; set; }
 
         //public override string ToString() => JsonSerializer.Serialize<Article>(this);
 

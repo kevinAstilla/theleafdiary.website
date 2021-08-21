@@ -32,5 +32,34 @@ namespace theleafdiary.WebSite.Services
                     });
             }
         }
+        public void AddRating(string articleId, int ratings)
+        {
+            var articles = GetArticles();
+
+            var article = articles.First( x => x.Id == articleId);
+
+            if(article.Ratings == null)
+            {
+                article.Ratings = new int[] { ratings };
+            }
+            else
+            {
+                var articleRatings = article.Ratings.ToList();
+                articleRatings.Add(ratings);
+                article.Ratings = articleRatings.ToArray();
+            }
+
+            using(var outputStream = File.OpenWrite(JsonFileName))
+            {
+                JsonSerializer.Serialize<IEnumerable<Article>>(
+                    new Utf8JsonWriter(outputStream, new JsonWriterOptions
+                    {
+                        SkipValidation = true,
+                        Indented = true
+                    }),
+                    articles
+                );
+            }
+        }
     }
 }
